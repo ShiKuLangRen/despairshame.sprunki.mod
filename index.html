@@ -75,7 +75,12 @@
                 点击下载最新版本
             </button>
         </div>
-        
+         <!-- unmade <div class="text-center mb-11">
+            <button id="playBtn" class="btn-primary">
+                <i class="fas fa-play mr-3"></i>
+                现在游玩
+            </button>
+        </div>   -->
         <!-- 功能按钮组 -->
         <div class="flex flex-col items-center gap-6 mb-12">
             <button id="teamBtn" class="btn-secondary">
@@ -146,6 +151,7 @@
     <strong class="text-purple-400">代码师：</strong>
     <span class="text-white ml-2">创游:<span class="text-gray-0 ml-3"><a href="https://space.bilibili.com/3546933631126051" target="_blank" class="text-white hover:text-red-300 underline ml-2">天王星</a>
     <span class="text-white ml-2"> / 乐子银 / scratch：<a href="https://space.bilibili.com/3546694264293667" target="_blank" class="text-white hover:text-purple-300 underline ml-2">十苦Shiku</a>
+    <span class="text-gray-0 ml-3">/ <a href="https://space.bilibili.com/3546824124139563" target="_blank" class="text-white hover:text-purple-300 underline ml-2">倒芥</a>
     </div>
     <div class="bg-gray-800 p-4 rounded-lg">
     <strong class="text-red-400">动画：</strong>
@@ -180,7 +186,13 @@
                     showNotification('正在为您下载望愧实验室模组 v0.2.0', 'green');
                 });
             }
-            
+            const playBtn = document.getElementById('playBtn');
+            if (playBtn) {
+                playBtn.addEventListener('click', function() {
+                    window.open('https://pan.baidu.com/s/1yR7WjvsfbqnHpiha7tFSIQ?pwd=wbxt', '_blank');
+                    showNotification('加载中 v0.2.0', 'blue');
+                });
+            }
             // 制作组信息按钮
             const teamBtn = document.getElementById('teamBtn');
             if (teamBtn) {
