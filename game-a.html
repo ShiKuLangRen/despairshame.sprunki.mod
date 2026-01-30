@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>望愧实验室模组 | 望愧实验室</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4ade80',
+                        secondary: '#166534',
+                        accent: '#facc15',
+                        dark: '#1e293b',
+                        light: '#f8fafc'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+    body {
+    background: 
+        linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)),
+        url('bg_game_a.png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+        @layer utilities {
+            .btn-primary { @apply bg-primary text-dark font-bold py-3 px-6 rounded-lg hover:bg-primary/80 transition-all; }
+            .version-title { @apply text-accent font-semibold; }
+            .code-block { @apply bg-gray-900 p-4 rounded-lg text-sm font-mono overflow-x-auto my-4; }
+        }
+    </style>
+
+    <!-- 网站图标 -->
+<link rel="icon" href="icon.png" type="image/png">
+<link rel="apple-touch-icon" href="icon.png">
+
+</head>
+<body class="bg-gradient-to-br from-dark to-gray-900 min-h-screen text-light">
+<!-- 导航栏 -->
+
+<nav class="bg-gray-900/95 backdrop-blur-md border-b border-gray-700/50 sticky top-0 z-50 h-16 shadow-lg">
+  <div class="max-w-7xl mx-auto px-6 h-full flex justify-between items-center">
+    <div class="flex items-center h-full">
+      <a href="index.html" class="flex items-center hover:opacity-80 transition-opacity duration-300">
+        <img src="big_icon.png" alt="网站Logo" class="h-10 w-auto object-contain">
+      </a>
+    </div>
+    <div class="flex items-center gap-4">
+      <div class="text-gray-300 text-sm flex items-center gap-2">
+
+
+      </a>
+
+
+      </a>
+
+            </span>
+        </a>
+        
+        <div class="flex items-center space-x-4 flex-shrink-0">
+            <div class="hidden sm:flex items-center space-x-2">
+                <span class="text-gray-400 text-sm">|</span>
+                <span class="text-gray-300 text-sm truncate max-w-[150px]">望愧实验室模组</span>
+            </div>
+            
+
+        </div>
+    </div>
+</nav>
+
+</nav>
+
+
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-primary">望愧实验室模组</h1>
+            <p class="text-gray-400 mt-2">最新版本: 0.6.1.5</p>
+        </div>
+
+        <div class="aspect-video bg-gray-800 rounded-lg overflow-hidden mb-8">
+            <img src="a.png" alt="望愧实验室模组展示图" class="w-full h-full object-cover">
+        </div>
+
+        <div class="flex justify-center mb-8">
+    <a href="https://example.com" target="_blank">
+        <button class="btn-primary">
+        点击下载
+        </button>
+    </a>
+</div>
+
+        <div class="bg-gray-800/50 p-6 rounded-xl mb-8">
+            <h2 class="text-xl font-bold text-primary mb-4">更新内容</h2>
+            <ul class="space-y-4 text-gray-300">
+                <li><span class="version-title">0.2.0 试玩版</span>：制作了0/1阶段机制、character动画、looper更新</li>
+                <li><span class="version-title">0.5.0 测试版</span>：2阶段已进行制作，背景功能完善，更新code功能，looper更新，更新画廊/角色介绍/设置，设置新增"动画""视频观看"和界面适配，添加动画，图标已进行制作</li>
+                <li><span class="version-title">0.5.5 改进</span>：0阶段除隐藏角色所有声音已完成，画廊添加内容，增加code代码，Mr. Sun可以大声一点（哔哩哔哩@skyi-sprunki），looper更新，新增开始界面</li>
+                <li><span class="version-title">0.5.6 修改</span>：动画已删除，更新代码内容，2p开始制作，更换polo造型</li>
+                <li><span class="version-title">0.5.7 修改</span>：造型更新，新增背景太阳，更改2阶段进入机制，新增fps功能，将部分代码加入到设置按钮区，更改太阳入场和退场动画，开头右下角添加版本号</li>
+                <li><span class="version-title">0.5.8 更新</span>：版本号移至右上角，画廊添加内容</li>
+                <li><span class="version-title">0.5.9 更新</span>：添加一个彩蛋</li>
+                <li><span class="version-title">0.6.0 更新</span>：设置添加新按钮"Low quality"，修复彩蛋bug，更新图标</li>
+                <li><span class="version-title">0.6.1 更新</span>：加了新按钮，修复bug，更新图标</li>
+                <li><span class="version-title">0.6.1.5</span>：DIRLAB PA正式改为DIRLAB AU</li>
+            </ul>
+        </div>
+
+        <div class="bg-gray-800/50 p-6 rounded-xl mb-8">
+            <h2 class="text-xl font-bold text-primary mb-4">废除计划</h2>
+            <p class="text-gray-300">1阶段在没查看完其他角色无法进入</p>
+        </div>
+
+        <div class="bg-gray-800/50 p-6 rounded-xl">
+            <h2 class="text-xl font-bold text-primary mb-4">公开代码展示(code)</h2>
+            <div class="code-block">
+                <p>抽象："忘如本" "望本实验室"<br>
+                RGB调节(可叠加)："(red)+(green)+(blue)"<br>
+                恢复："0" "(空)"<br>
+                特殊：颜色反转："2p"</p>
+            </div>
+            <!-- 制作组信息 -->
+<div class="bg-gray-800/50 p-6 rounded-xl mt-8">
+    <h2 class="text-xl font-bold text-primary mb-4">制作团队</h2>
+    <div class="space-y-4">
+        <!-- 绘画团队 -->
+        <div class="bg-gray-900/50 p-4 rounded-lg border-l-4 border-blue-500">
+            <strong class="text-blue-400">绘画：</strong>
+            <a href="https://space.bilibili.com/3546592994920727" target="_blank" 
+               class="text-light hover:text-blue-300 underline ml-2 transition-colors duration-300">
+                紫皖ASTERWAN
+            </a>
+        </div>
+        
+        <!-- 音频团队 -->
+        <div class="bg-gray-900/50 p-4 rounded-lg border-l-4 border-green-500">
+            <strong class="text-green-400">音频：</strong>
+            <a href="https://space.bilibili.com/3546694264293667" target="_blank" 
+               class="text-light hover:text-green-300 underline transition-colors duration-300">
+                十苦Shiku
+            </a>
+            <span class="text-gray-400 mx-2">/</span>
+            <a href="https://space.bilibili.com/535835672" target="_blank" 
+               class="text-light hover:text-green-300 underline transition-colors duration-300">
+                一杯柠檬水YN
+            </a>
+        </div>
+        
+        <!-- 代码师团队 -->
+        <div class="bg-gray-900/50 p-4 rounded-lg border-l-4 border-purple-500">
+            <strong class="text-purple-400">代码师：</strong>
+            <span class="text-light">创游：</span>
+            <a href="https://space.bilibili.com/3546933631126051" target="_blank" 
+               class="text-light hover:text-red-300 underline ml-1 transition-colors duration-300">
+                天王星
+            </a>
+            <span class="text-gray-400 mx-2">/</span>
+            <span class="text-light">乐子银</span>
+            <span class="text-gray-400 mx-2">/</span>
+            <span class="text-light">scratch：</span>
+            <a href="https://space.bilibili.com/3546694264293667" target="_blank" 
+               class="text-light hover:text-purple-300 underline ml-1 transition-colors duration-300">
+                十苦Shiku
+            </a>
+            <span class="text-gray-400 mx-2">/</span>
+            <a href="https://space.bilibili.com/3546824124139563" target="_blank" 
+               class="text-light hover:text-purple-300 underline transition-colors duration-300">
+                倒芥
+            </a>
+        </div>
+        
+        <!-- 动画团队 -->
+        <div class="bg-gray-900/50 p-4 rounded-lg border-l-4 border-red-500">
+            <strong class="text-red-400">动画：</strong>
+            <a href="https://space.bilibili.com/1949836473" target="_blank" 
+               class="text-light hover:text-red-300 underline transition-colors duration-300">
+                开朗
+            </a>
+            <span class="text-gray-400 mx-2">/</span>
+            <a href="https://space.bilibili.com/3546592994920727" target="_blank" 
+               class="text-light hover:text-red-300 underline transition-colors duration-300">
+                紫皖ASTERWAN
+            </a>
+            <span class="text-gray-400 mx-2">/</span>
+            <a href="https://space.bilibili.com/1101404897" target="_blank" 
+               class="text-light hover:text-red-300 underline transition-colors duration-300">
+                充电线
+            </a>
+        </div>
+        
+        <!-- 网页团队 -->
+        <div class="bg-gray-900/50 p-4 rounded-lg border-l-4 border-yellow-500">
+            <strong class="text-yellow-400">网页：</strong>
+            <a href="https://space.bilibili.com/3546694264293667" target="_blank" 
+               class="text-light hover:text-yellow-300 underline ml-2 transition-colors duration-300">
+                十苦Shiku
+            </a>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </main>
+</body>
+</html>

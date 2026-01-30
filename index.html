@@ -1,0 +1,373 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>望愧实验室</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4ade80',
+                        secondary: '#166534',
+                        accent: '#facc15',
+                        dark: '#1e293b',
+                        light: '#f8fafc'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+    body {
+     background: url('bg_home.png') no-repeat center center fixed;
+    background-size: cover;
+
+}
+
+        @layer utilities {
+            .game-card {
+                @apply bg-dark rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 cursor-pointer border-2 border-primary/30;
+            }
+            .game-card:hover { @apply border-primary; }
+            .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        }
+                .player-container {
+            transition: all 0.3s ease;
+        }
+        .player-fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.95);
+        }
+        .video-thumb:hover {
+            @apply ring-2 ring-primary ring-opacity-50;
+        }
+
+                .player-container {
+            transition: all 0.3s ease;
+        }
+        .player-fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.95);
+        }
+        .video-thumb:hover {
+            @apply ring-2 ring-primary ring-opacity-50;
+        }
+
+    </style>
+    <!-- 网站图标 -->
+<link rel="icon" href="icon.png" type="image/png">
+<link rel="apple-touch-icon" href="icon.png">
+
+</head>
+<body class="bg-gradient-to-br from-dark to-gray-900 min-h-screen text-light">
+<!-- 导航栏 -->
+
+<nav class="bg-gray-900/95 backdrop-blur-md border-b border-gray-700/50 sticky top-0 z-50 h-16 shadow-lg">
+  <div class="max-w-7xl mx-auto px-6 h-full flex justify-between items-center">
+    <div class="flex items-center h-full">
+      <a href="index.html" class="flex items-center hover:opacity-80 transition-opacity duration-300">
+        <img src="big_icon.png" alt="网站Logo" class="h-10 w-auto object-contain">
+      </a>
+    </div>
+    <div class="flex items-center gap-4">
+      <div class="text-gray-300 text-sm flex items-center gap-2">
+
+
+      </a>
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </div>
+</nav>
+
+        </div>
+    </div>
+</nav>
+
+            
+        </a>
+        
+       
+        </div>
+    </div>
+</nav>
+    <header class="py-10 text-center">
+        <h1 class="text-[clamp(2.5rem,8vw,4rem)] font-bold text-primary text-shadow">望愧实验室</h1>
+        <p class="text-gray-400 mt-2 text-lg">DIRLAB SPRUNKI AU</p>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 max-w-6xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- 游戏A卡片 -->
+            <a href="game-a.html" class="game-card">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-primary mb-4">望愧实验室模组</h2>
+                    <div class="aspect-video bg-gray-800 rounded-lg overflow-hidden mb-4">
+                        <img src="a.png" alt="望愧实验室模组展示图" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-gray-300 text-sm">最新版本: 0.6.0</p>
+                </div>
+            </a>
+
+            <!-- 游戏B卡片 -->
+            <a href="game-b.html" class="game-card">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-primary mb-4">DIRLAB AU</h2>
+                    <div class="aspect-video bg-gray-800 rounded-lg overflow-hidden mb-4">
+                        <img src="b.png" alt="DIRLAB AU展示图" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-gray-300 text-sm">最新版本: 0.0.4</p>
+                </div>
+            </a>
+        </div>
+    </main>
+
+<!-- 剧情动画区域 -->
+<div class="mt-16 bg-gray-900/70 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 p-3">
+        <h2 class="text-2xl font-bold text-primary">剧情动画观看区</h2>
+        <p class="text-gray-400 mt-1">选择下方的视频开始观看</p>
+    </div>
+
+    <div class="p-6">
+  
+        <!-- 主播放器 -->
+       <div class="max-w-4xl mx-auto">
+       <div class="player-container bg-black rounded-xl overflow-hidden shadow-2xl mb-6" id="player-container">
+            <div class="aspect-video relative bg-gray-900" id="video-display">
+                <!-- 初始占位符 -->
+                <div class="absolute inset-0 flex items-center justify-center" id="video-placeholder">
+                    <div class="text-center">
+                        </i>
+                        <p class="text-gray-300">请从下方选择视频播放</p>
+                    </div>
+                </div>
+                <!-- 视频播放器区域 -->
+                <div class="absolute inset-0 hidden" id="video-player">
+                    <div class="w-full h-full flex items-center justify-center" id="play-overlay-container">
+                        <div class="text-center cursor-pointer" id="play-overlay">
+                       </i>
+                            <p class="text-gray-300">点击播放键开始播放（加载可能需要一小段时间，如果长时间没加载好请刷新网站或前往哔哩哔哩看👀）</p>
+                        </div>
+                    </div>
+                    <!-- B站视频iframe -->
+                    <iframe class="w-full h-full" style="display:none;" id="video-iframe" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- 播放控制条 -->
+            <div class="bg-gray-800 px-4 py-3">
+                <div class="flex flex-col gap-2">
+                    
+
+                    <!-- 控制按钮 -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <button class="text-white hover:text-primary transition-colors" id="play-pause-btn">
+                                </i>
+                                <span class="ml-1 hidden sm:inline">开始播放（点这个文字，因为不知道开始按钮怎么做好）</span>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 视频选择列表 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- 望愧实验室视频 -->
+            <div class="video-list" data-category="lab">
+                <h4 class="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">望愧实验室视频</h4>
+                <div class="space-y-3">
+                    <div class="video-item bg-gray-800/70 rounded-lg p-3 hover:bg-gray-800 cursor-pointer transition-colors" data-video-id="BV1KK9VYREto" data-title="初见">
+                        <div class="flex items-center gap-3">
+                            <div class="flex-shrink-0 w-16 h-12 bg-gray-700 rounded flex items-center justify-center">
+                                <i class="fas fa-play text-primary"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <h5 class="font-medium text-white">初见</h5>
+                                <p class="text-gray-400 text-sm mt-1">来自: BV1KK9VYREto</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-item bg-gray-800/70 rounded-lg p-3 hover:bg-gray-800 cursor-pointer transition-colors" data-video-id="BV1UDRWYtEH7" data-title="命令">
+                        <div class="flex items-center gap-3">
+                            <div class="flex-shrink-0 w-16 h-12 bg-gray-700 rounded flex items-center justify-center">
+                                <i class="fas fa-play text-primary"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <h5 class="font-medium text-white">命令</h5>
+                                <p class="text-gray-400 text-sm mt-1">来自: BV1UDRWYtEH7</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-item bg-gray-800/70 rounded-lg p-3 hover:bg-gray-800 cursor-pointer transition-colors" data-video-id="BV1jASTBMEKr" data-title="绝望（上）">
+                        <div class="flex items-center gap-3">
+                            <div class="flex-shrink-0 w-16 h-12 bg-gray-700 rounded flex items-center justify-center">
+                                <i class="fas fa-play text-primary"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <h5 class="font-medium text-white">绝望（上）</h5>
+                                <p class="text-gray-400 text-sm mt-1">来自: BV1jASTBMEKr</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 望愧实验室游戏视频 -->
+            <div class="video-list" data-category="game">
+                <h4 class="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">望愧实验室游戏视频</h4>
+                <div class="space-y-3">
+                    <div class="video-item bg-gray-800/70 rounded-lg p-3 hover:bg-gray-800 cursor-pointer transition-colors" data-video-id="BV1Nv1XBuECg" data-title="第一章">
+                        <div class="flex items-center gap-3">
+                            <div class="flex-shrink-0 w-16 h-12 bg-gray-700 rounded flex items-center justify-center">
+                                <i class="fas fa-play text-primary"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <h5 class="font-medium text-white">第一章</h5>
+                                <p class="text-gray-400 text-sm mt-1">来自: BV1Nv1XBuECg</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 版权声明 -->
+        <div class="mt-6 pt-4 border-t border-gray-700/50 text-center">
+            <p class="text-gray-400 text-sm">
+                <i class="fas fa-info-circle mr-1"></i>
+                所有视频均来自哔哩哔哩~ | All videos are from Bilibili!
+            </p>
+        </div>
+    </div>
+</section>
+
+    <footer class="mt-8 py-6 text-center text-gray-500 text-sm">
+
+        <p>© 2025 望愧实验室 版权所有</p>
+        
+        <footer class="mt-1 py-1 text-center text-gray-500 text-sm">
+        <p>何意为，紫皖，我们知道你的网名了！紫皖紫皖阿皖阿皖！😨😨😨</p>
+        <a>有bug反馈邮箱3099743445@qq.com 因为bug有点多？🤔🤔🤔（大概可能是。吧</a>
+         
+        </div>
+    </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 获取DOM元素
+        const videoPlaceholder = document.getElementById('video-placeholder');
+        const videoPlayer = document.getElementById('video-player');
+        const videoIframe = document.getElementById('video-iframe');
+        const playOverlay = document.getElementById('play-overlay');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const playerContainer = document.getElementById('player-container');
+        const categoryBtns = document.querySelectorAll('.video-category-btn');
+        const videoItems = document.querySelectorAll('.video-item');
+
+        let currentVideoId = null;
+        let isPlaying = false;
+        let isFullscreen = false;
+
+        // 视频数据
+        const videoData = {
+            'BV1KK9VYREto': { title: '初见', category: 'lab' },
+            'BV1UDRWYtEH7': { title: '命令', category: 'lab' },
+            'BV1jASTBMEKr': { title: '绝望（上）', category: 'lab' },
+            'BV1Nv1XBuECg': { title: '第一章', category: 'game' }
+        };
+
+        // 视频选择
+        videoItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const videoId = this.dataset.videoId;
+                currentVideoId = videoId;
+
+                videoPlaceholder.classList.add('hidden');
+                videoPlayer.classList.remove('hidden');
+                videoIframe.style.display = 'none';
+                playOverlay.parentElement.style.display = 'flex';
+
+                const embedUrl = `https://player.bilibili.com/player.html?bvid=${videoId}&page=1&autoplay=0`;
+                videoIframe.src = embedUrl;
+
+                updatePlayButton(false);
+                isPlaying = false;
+            });
+        });
+
+        // 播放/暂停
+        function togglePlayPause() {
+            if (!currentVideoId) return;
+
+            isPlaying = !isPlaying;
+            if (isPlaying) {
+                videoIframe.style.display = 'block';
+                playOverlay.parentElement.style.display = 'none';
+                updatePlayButton(true);
+            } else {
+                videoIframe.style.display = 'none';
+                playOverlay.parentElement.style.display = 'flex';
+                updatePlayButton(false);
+            }
+        }
+
+        // 更新播放按钮
+        function updatePlayButton(playing) {
+            const icon = playPauseBtn.querySelector('i');
+            const text = playPauseBtn.querySelector('span');
+            if (playing) {
+                icon.className = 'fas fa-pause-circle text-2xl';
+                text.textContent = '暂停播放';
+            } else {
+                icon.className = 'fas fa-play-circle text-2xl';
+                text.textContent = currentVideoId ? '继续播放' : '开始播放';
+            }
+        }
+
+        playOverlay.addEventListener('click', togglePlayPause);
+        playPauseBtn.addEventListener('click', togglePlayPause);
+
+        
+
+        // 分类筛选
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const category = this.dataset.category;
+                categoryBtns.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-dark');
+                    b.classList.add('bg-gray-700', 'text-white');
+                });
+                this.classList.remove('bg-gray-700', 'text-white');
+                this.classList.add('bg-primary', 'text-dark');
+
+                document.querySelectorAll('.video-list').forEach(list => {
+                    list.style.display = list.dataset.category === category ? 'block' : 'none';
+                });
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
