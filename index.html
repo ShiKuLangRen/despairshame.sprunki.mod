@@ -254,24 +254,198 @@
 
         <!-- 版权声明 -->
         <div class="mt-6 pt-4 border-t border-gray-700/50 text-center">
-            <p class="text-gray-400 text-sm">
-                <i class="fas fa-info-circle mr-1"></i>
-                所有视频均来自哔哩哔哩~ | All videos are from Bilibili!
-            </p>
+            <p class="text-gray-600 text-sm mt-2">所有视频内容均来源于哔哩哔哩 (Bilibili)</p>
+            </div>
         </div>
     </div>
 </section>
 
-    <footer class="mt-8 py-6 text-center text-gray-500 text-sm">
+        <!-- 美化后的页脚区域 -->
+    <footer class="mt-16 py-8 bg-gradient-to-t from-gray-900/90 to-dark border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-4">
+            
+            <!-- 个性签名 -->
+            <div class="text-center mb-8">
+                <p class="text-gray-400 italic text-lg">何意为，紫皖，我们知道你的网名了！紫皖紫皖阿皖阿皖！😨😨😨</p>
+            </div>
 
-        <p>© 2025 望愧实验室 版权所有</p>
-        
-        <footer class="mt-1 py-1 text-center text-gray-500 text-sm">
-        <p>何意为，紫皖，我们知道你的网名了！紫皖紫皖阿皖阿皖！😨😨😨</p>
-        <a>有bug反馈邮箱3099743445@qq.com 因为bug有点多？🤔🤔🤔（大概可能是。吧</a>
-         
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
+                
+                <!-- 左侧：联系信息 -->
+                <div class="text-center md:text-left space-y-4 flex-1">
+                    <div>
+                        <h3 class="text-xl font-bold text-primary mb-2">反馈与支持</h3>
+                        <p class="text-gray-300">我们重视您的每一条反馈。</p>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-center md:justify-start gap-3">
+                            <i class="fas fa-envelope text-accent text-lg"></i>
+                            <div>
+                                <p class="font-medium text-white">Bug反馈邮箱</p>
+                                <a href="mailto:3099743445@qq.com" class="text-gray-400 hover:text-primary transition-colors text-sm md:text-base">
+                                    3099743445@qq.com
+                                </a>
+                                <p class="text-gray-500 text-xs mt-1">有bug反馈邮箱，因为bug有点多？🤔🤔🤔（大概可能是。吧</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-center md:justify-start gap-3">
+                            <i class="fab fa-qq text-accent text-lg"></i>
+                            <div>
+                                <p class="font-medium text-white">官方交流群</p>
+                                <p class="text-gray-400 text-sm md:text-base">1022339764</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 <!-- 右侧：二维码 - 添加点击放大功能 -->
+        <div class="flex-shrink-0 bg-gray-800/50 p-6 rounded-2xl border border-gray-700 shadow-xl">
+            <h4 class="font-bold text-white text-center mb-3">扫码加入QQ群</h4>
+            <div class="relative group cursor-pointer" id="qr-code-container">
+                <img src="qq.jpg" 
+                     alt="望愧实验室官方QQ群二维码" 
+                     class="w-48 h-48 md:w-56 md:h-56 object-contain rounded-lg mx-auto transition-transform duration-300 group-hover:scale-105"
+                     id="qr-code-img">
+                <!-- 点击提示 -->
+                <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100">
+                    <div class="bg-dark/90 px-4 py-2 rounded-lg text-white text-sm font-medium">
+                        别点了😭😭😭 什么都不会发生！不会做！
+                    </div>
+                </div>
+            </div>
+            <p class="text-gray-400 text-sm text-center mt-3">获取最新动态（bushi）</p>
         </div>
-    </footer>
+    </div>
+    
+            </div>
+            
+            <!-- 版权信息 -->
+            <div class="mt-10 pt-6 border-t border-gray-800 text-center">
+                <p class="text-gray-500">© 2024~6（不知道） 望愧实验室 版权所有（自己拉的）</p>
+                
+        </div>
+    </footer> 
+    
+<!-- 图片放大模态框 -->
+<div id="imageModal" class="fixed inset-0 z-[99999] bg-black/90 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity duration-300">
+  <div class="relative max-w-6xl max-h-[90vh] w-full">
+    <!-- 关闭按钮 -->
+    <button id="closeModal" class="absolute -top-12 right-0 text-white hover:text-primary text-3xl z-50 transition-colors duration-200">
+      <i class="fas fa-times"></i>
+    </button>
+    
+    <!-- 图片容器 -->
+    <div class="w-full h-full flex items-center justify-center">
+      <img id="modalImage" src="" alt="" class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl transition-transform duration-300">
+    </div>
+    
+    <!-- 图片信息 -->
+    <div class="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-4 rounded-b-lg">
+      <p id="modalCaption" class="text-center text-lg font-medium"></p>
+      <p id="modalAlt" class="text-center text-sm text-gray-300 mt-1"></p>
+    </div>
+  </div>
+</div>
+
+<!-- 模态框CSS样式 -->
+<style>
+#imageModal {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#imageModal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#imageModal .modal-content {
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+#imageModal.show .modal-content {
+  transform: scale(1);
+}
+</style>
+
+<!-- 模态框JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const imageModal = document.getElementById('imageModal');
+  const modalImage = document.getElementById('modalImage');
+  const modalCaption = document.getElementById('modalCaption');
+  const modalAlt = document.getElementById('modalAlt');
+  const closeModalBtn = document.getElementById('closeModal');
+
+  // 打开放大模态框
+  function openImageModal(imgSrc, caption, altText) {
+    if (!imgSrc) return;
+    
+    modalImage.src = imgSrc;
+    modalImage.alt = altText || '放大图片';
+    modalCaption.textContent = caption || '';
+    modalAlt.textContent = altText || '';
+    
+    // 显示模态框
+    imageModal.classList.remove('hidden');
+    setTimeout(() => {
+      imageModal.classList.add('show');
+    }, 10);
+    
+    // 阻止背景滚动
+    document.body.style.overflow = 'hidden';
+  }
+
+  // 关闭模大模态框
+  function closeImageModal() {
+    imageModal.classList.remove('show');
+    setTimeout(() => {
+      imageModal.classList.add('hidden');
+      modalImage.src = '';
+      document.body.style.overflow = '';
+    }, 300);
+  }
+
+  // 事件监听器
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', closeImageModal);
+  }
+
+  // 点击背景关闭
+  imageModal.addEventListener('click', function(e) {
+    if (e.target === imageModal) {
+      closeImageModal();
+    }
+  });
+
+  // ESC键关闭
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && imageModal.classList.contains('show')) {
+      closeImageModal();
+    }
+  });
+
+  // 为所有可放大图片添加点击事件
+  document.querySelectorAll('[data-zoomable]').forEach(img => {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', function() {
+      const src = this.src || this.dataset.src;
+      const caption = this.dataset.caption || '';
+      const alt = this.alt || '';
+      openImageModal(src, caption, alt);
+    });
+  });
+
+  // 暴露全局函数
+  window.openImageModal = openImageModal;
+  window.closeImageModal = closeImageModal;
+});
+</script>
+
+
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         // 获取DOM元素
@@ -371,4 +545,3 @@
 
 </body>
 </html>
-
